@@ -25,9 +25,10 @@
             <% if(isurl){ %>
             <p>your shortened-url is :-</p>
             <a href="<%= red_url %>"><%= red_url %></a>;
+            <p>PS:- this link will be destroyed after 24 hours</p>
             <% }else {
             %>
-            <p><%=red_url%></p>
+            <p><%= red_url %></p>
             <% }
             %>
 

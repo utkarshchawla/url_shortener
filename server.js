@@ -32,8 +32,9 @@ app.post('/', urlencodedParser, function (req, res) {
     var fullUrl = "";
     var isurl = "";
     if (validUrl.isUri(input)) {
-        redis.set(id, input);
-        redis.set(input, id);
+        redis.set(id, input, 'EX', parseInt((+new Date) / 1000) + 86400);
+        redis.set(input, id, 'EX', parseInt((+new Date) / 1000) + 86400);
+
         fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl + id;
         isurl = true;
     } else {
@@ -42,8 +43,6 @@ app.post('/', urlencodedParser, function (req, res) {
     }
 
     res.render('index', {red_url: fullUrl, isurl: isurl});
-
-
 });
 
 app.get('/:id', function (req, res) {
