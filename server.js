@@ -1,9 +1,17 @@
 var express = require('express');
 var app = express();
+var port = process.env.PORT || 3000;
 var path = require('path');
 var parseurl = require('parse-url');
 var bodyParser = require('body-parser');
-var redis = require('redis').createClient();
+var redis = require('redis').createClient(13983, 'redis-13983.c8.us-east-1-2.ec2.cloud.redislabs.com', {no_ready_check: true});
+redis.auth('urlshorten', function (err) {
+    if (err) throw err;
+});
+
+redis.on('connect', function () {
+    console.log('Connected to Redis');
+});
 var shortid = require('shortid');
 var validUrl = require('valid-url');
 
@@ -48,5 +56,5 @@ app.get('/:id', function (req, res) {
     });
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(port);
 
