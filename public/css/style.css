@@ -1,0 +1,115 @@
+body {
+    background: #ff0023;
+}
+
+h1{
+    font-size: 5vw;
+    font-family: 'Encode Sans', sans-serif;
+    text-align: center;
+    margin-top: 10vw;
+    margin-bottom: 3vw;
+    color: white;
+}
+
+.row {
+    align-items: center;
+    display: block;
+    size: 100vw;
+}
+
+a {
+    font-family: 'Encode Sans', sans-serif;
+    font-size: 3vw;
+    color: #faffff;
+    text-align: center;
+}
+
+a:hover {
+    color: blue;
+}
+
+p {
+    /*size: 1vw;*/
+    /*margin-top: 20vw;*/
+    font-family: 'Encode Sans', sans-serif;
+    color: white;
+    /*text-align: center;*/
+    /*float: bottom;*/
+
+}
+
+#searchbox {
+    background: #eaf8fc linear-gradient(#fff, #d4e8ec);
+    border-radius: 12vw;
+    border-width: 0.2vw;
+    border-style: solid;
+    border-color: #c4d9df #a4c3ca #83afb7;
+    width: 60vw;
+    height: 4vw;
+    padding: 1vw;
+    overflow: hidden; /* Clear floats */
+}
+
+#search {
+    float: left;
+    padding: 0.3vw 0.7vw;
+    height: 3.5vw;
+    width: 40vw;
+    border: 0.05vw solid #a4c3ca;
+    font: normal 1.5vw 'Encode Sans', arial, helvetica;
+    background: #f1f1f1;
+    border-radius: 5vw 1vw 1vw 5vw;
+}
+
+/* ----------------------- */
+
+#submit {
+    display: inline-block;
+    float: left;
+    background: #263cbb linear-gradient(#2740d7, #2740d7);
+    height: 4vw;
+    /*margin: 0 0 0 1vw;*/
+    /*padding: 0;*/
+    width: 18vw;
+    cursor: pointer;
+    /*font: Encode Sans;*/
+    font-family: 'Encode Sans', sans-serif;
+    font-style: italic;
+    color: #faffff;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    font-size: 1.5vw;
+    overflow: inherit;
+
+}
+
+.footer {
+    margin-top: 20vw;
+    width: auto;
+    height: auto;
+    size: 1vw;
+    float: bottom;
+}
+
+#submit:hover {
+    background: #7788d7 linear-gradient(#666dbb, #666dbb);
+}
+
+#submit:active {
+    background: #95d788;
+    outline: none;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+}
+
+#submit::-moz-focus-inner {
+    border: 0; /* Small centering fix for Firefox */
+}
+
+#search::-webkit-input-placeholder {
+    color: #9c9c9c;
+    font-style: italic;
+}
+
+#search:-moz-placeholder {
+    color: #9c9c9c;
+    font-style: italic;
+}
