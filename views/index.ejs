@@ -22,8 +22,15 @@
         </div>
 
         <div align="center">
+            <% if(isurl){ %>
             <p>your shortened-url is :-</p>
-            <a href="<%= red_url %>">this</a>;
+            <a href="<%= red_url %>"><%= red_url %></a>;
+            <% }else {
+            %>
+            <p><%=red_url%></p>
+            <% }
+            %>
+
         </div>
     </div>
 </div>

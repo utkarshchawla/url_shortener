@@ -5,6 +5,7 @@ var parseurl = require('parse-url');
 var bodyParser = require('body-parser');
 var redis = require('redis').createClient();
 var shortid = require('shortid');
+var validUrl = require('valid-url');
 
 
 var urlencodedParser = bodyParser.urlencoded({extended: false})
@@ -18,10 +19,23 @@ app.get('/', function (req, res) {
 
 app.post('/', urlencodedParser, function (req, res) {
     var id = shortid.generate();
-    redis.set(id, req.body.input_url);
-    redis.set(req.body.input_url, id);
-    var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl + id;
-    res.render('index', {red_url: fullUrl});
+    var input = req.body.input_url
+
+    var fullUrl = "";
+    var isurl = "";
+    if (validUrl.isUri(input)) {
+        redis.set(id, input);
+        redis.set(input, id);
+        fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl + id;
+        isurl = true;
+    } else {
+        fullUrl = "Please Enter a Valid Url";
+        isurl = false;
+    }
+
+    res.render('index', {red_url: fullUrl, isurl: isurl});
+
+
 });
 
 app.get('/:id', function (req, res) {
